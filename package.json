@@ -1,0 +1,45 @@
+{
+  "name": "temporary-memo",
+  "displayName": "temporary-memo",
+  "description": "Take temporary memo",
+  "version": "0.0.1",
+  "publisher": "bokken",
+  "engines": {
+    "vscode": "^1.20.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.tempMemo"
+  ],
+  "main": "./out/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.tempMemo",
+        "title": "Hello World"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "npm run compile && node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "@types/mkdirp": "^0.5.2",
+    "@types/mocha": "^2.2.42",
+    "@types/node": "^7.0.43",
+    "@types/pify": "^3.0.0",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.1",
+    "vscode": "^1.1.6"
+  },
+  "dependencies": {
+    "mkdirp": "^0.5.1",
+    "pify": "^3.0.0"
+  }
+}
