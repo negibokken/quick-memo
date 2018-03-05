@@ -27,7 +27,7 @@ export function activate(context: vscode.ExtensionContext) {
       await statp(path).catch(() => {
         isExist = false;
       });
-      const fileuri = vscode.Uri.file(path);
+      const fileUri = vscode.Uri.file(path);
       try {
         if (!isExist) {
           await vscode.workspace.openTextDocument(uri);
@@ -40,7 +40,7 @@ export function activate(context: vscode.ExtensionContext) {
       }
 
       let edit = new vscode.WorkspaceEdit();
-      edit.insert(fileuri, new vscode.Position(1, 0), '\n');
+      edit.insert(fileUri, new vscode.Position(1, 0), '\n');
       vscode.workspace.applyEdit(edit);
       // wait editing filename
       // if filename is empty then set the date string .md
