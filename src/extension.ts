@@ -17,7 +17,8 @@ export function activate(context: vscode.ExtensionContext) {
       // make today's directory if needed
       const now = Date.now();
       const date = new Date(now);
-      const dirName = `${rootDir}/${date.getFullYear()}${date.getMonth()}${date.getDate()}`;
+      const dirName = `${rootDir}/${date.getFullYear()}${date.getMonth() +
+        1}${date.getDate()}`;
       await mkdirpp(dirName);
       const filename = 'test-file.md';
       const path = `${dirName}/${filename}`;
@@ -44,7 +45,7 @@ export function activate(context: vscode.ExtensionContext) {
       vscode.workspace.applyEdit(edit);
       // wait editing filename
       // if filename is empty then set the date string .md
-    },
+    }
   );
 
   context.subscriptions.push(disposable);
