@@ -43,6 +43,10 @@ export function activate(context: vscode.ExtensionContext) {
       let edit = new vscode.WorkspaceEdit();
       edit.insert(fileUri, new vscode.Position(1, 0), '\n');
       vscode.workspace.applyEdit(edit);
+      // Save Text
+      // TODO
+      // Show the document
+      await vscode.window.showTextDocument(fileUri);
       // wait editing filename
       // if filename is empty then set the date string .md
     }
