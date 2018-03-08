@@ -29,26 +29,20 @@ export function activate(context: vscode.ExtensionContext) {
         isExist = false;
       });
       const fileUri = vscode.Uri.file(path);
+      let doc;
       try {
         if (!isExist) {
-          await vscode.workspace.openTextDocument(uri);
+          // await vscode.workspace.openTextDocument(uri);
           vscode.window.showInformationMessage(`New file created! : ${path}`);
         }
-        await vscode.workspace.openTextDocument();
+        doc = await vscode.workspace.openTextDocument(uri);
       } catch (err) {
-        console.log(err);
         vscode.window.showErrorMessage(err);
       }
-
-      let edit = new vscode.WorkspaceEdit();
-      edit.insert(fileUri, new vscode.Position(1, 0), '\n');
-      vscode.workspace.applyEdit(edit);
-      // Save Text
-      // TODO
-      // Show the document
-      await vscode.window.showTextDocument(fileUri);
-      // wait editing filename
-      // if filename is empty then set the date string .md
+      if (!doc) {
+        return;
+      }
+      vscode.window.showTextDocument(doc, 1, false);
     }
   );
 
