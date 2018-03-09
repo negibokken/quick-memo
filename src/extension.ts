@@ -17,18 +17,35 @@ export function activate(context: vscode.ExtensionContext) {
       // make today's directory if needed
       const now = Date.now();
       const date = new Date(now);
-      const dirName = `${rootDir}/${date.getFullYear()}${date.getMonth() +
-        1}${date.getDate()}`;
+      const m = date.getMonth() + 1;
+      const d = date.getDate();
+      const monthString = m < 10 ? `0${m}` : m;
+      const dateString = d < 10 ? `0${d}` : d;
+
+      const dirName = `${rootDir}/${date.getFullYear()}${monthString}${dateString}`;
       await mkdirpp(dirName);
-      const filename = 'test-file.md';
+      let input = await vscode.window.showInputBox({
+        prompt: 'Input filename'
+      });
+      // Default file name
+      if (input === undefined || input === '') {
+        input = `${monthString}${dateString}_${date.getHours()}${date.getMinutes()}${date.getSeconds()}.md`;
+      }
+      // Set file type as markdown
+      if (!input.match(/.md$/)) {
+        input = `${input}.md`;
+      }
+
+      const filename = input;
       const path = `${dirName}/${filename}`;
       const uri = vscode.Uri.parse(`untitled:${path}`);
 
+      // Check file
       let isExist: boolean = true;
       await statp(path).catch(() => {
         isExist = false;
       });
-      const fileUri = vscode.Uri.file(path);
+
       let doc;
       try {
         if (!isExist) {
