@@ -9,7 +9,7 @@ const statp = pify(fs.stat);
 
 export function activate(context: vscode.ExtensionContext) {
   let disposable = vscode.commands.registerCommand(
-    'extension.tempMemo',
+    'extension.quickMemo',
     async () => {
       // Set HomeDirectory
       const homeDir = process.env.HOME;

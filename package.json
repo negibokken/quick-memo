@@ -13,13 +13,13 @@
     "vscode": "^1.20.0"
   },
   "categories": ["Other"],
-  "activationEvents": ["onCommand:extension.tempMemo"],
+  "activationEvents": ["onCommand:extension.quickMemo"],
   "main": "./out/extension",
   "contributes": {
     "commands": [
       {
-        "command": "extension.tempMemo",
-        "title": "Hello World"
+        "command": "extension.quickMemo",
+        "title": "Quick Memo"
       }
     ]
   },
