@@ -1,7 +1,5 @@
-# Change Log
-All notable changes to the "temporary-memo" extension will be documented in this file.
+# CHANGELOG
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+## 0.0.1 (2018/03/11)
 
-## [Unreleased]
-- Initial release
+* Initial release

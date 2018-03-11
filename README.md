@@ -1,1 +1,1 @@
-# (WIP) temporary-memo README
+# quick-memo README
