@@ -1,18 +1,14 @@
 {
-  "name": "temporary-memo",
-  "displayName": "temporary-memo",
-  "description": "Take temporary memo",
+  "name": "quick-memo",
+  "displayName": "quick-memo",
+  "description": "Take quick memo",
   "version": "0.0.1",
   "publisher": "bokken",
   "engines": {
     "vscode": "^1.20.0"
   },
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [
-    "onCommand:extension.tempMemo"
-  ],
+  "categories": ["Other"],
+  "activationEvents": ["onCommand:extension.tempMemo"],
   "main": "./out/extension",
   "contributes": {
     "commands": [
