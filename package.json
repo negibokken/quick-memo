@@ -4,6 +4,11 @@
   "description": "Take quick memo",
   "version": "0.0.1",
   "publisher": "bokken",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/negibokken/quick-memo"
+  },
+  "license": "MIT",
   "engines": {
     "vscode": "^1.20.0"
   },
@@ -35,7 +40,7 @@
     "vscode": "^1.1.6"
   },
   "dependencies": {
-    "mkdirp": "^0.5.1",
-    "pify": "^3.0.0"
+    "mkdirp": "0.5.1",
+    "pify": "3.0.0"
   }
 }
