@@ -13,7 +13,7 @@ export function activate(context: vscode.ExtensionContext) {
     async () => {
       // Set HomeDirectory
       const homeDir = process.env.HOME;
-      const rootDir = `${homeDir}/my-test-directory`;
+      const rootDir = `${homeDir}/quick-memo`;
       // make today's directory if needed
       const now = Date.now();
       const date = new Date(now);
