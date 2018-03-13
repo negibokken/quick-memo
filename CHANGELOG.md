@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.0 (2018/03/13)
+
+* Add feature to open existing file
+
 ## 0.0.4 (2018/03/12)
 
 * Update extension icon

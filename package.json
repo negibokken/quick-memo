@@ -2,7 +2,7 @@
   "name": "quick-memo",
   "displayName": "Quick Memo",
   "description": "Take quick memo",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "publisher": "bokken",
   "repository": {
     "type": "git",
