@@ -38,7 +38,7 @@ export function activate(context: vscode.ExtensionContext) {
 
       const filename = input;
       const path = `${dirName}/${filename}`;
-      const uri = vscode.Uri.parse(`untitled:${path}`);
+      let uri: vscode.Uri;
 
       // Check file
       let isExist: boolean = true;
@@ -49,8 +49,10 @@ export function activate(context: vscode.ExtensionContext) {
       let doc;
       try {
         if (!isExist) {
-          // await vscode.workspace.openTextDocument(uri);
           vscode.window.showInformationMessage(`New file created! : ${path}`);
+          uri = vscode.Uri.parse(`untitled:${path}`);
+        } else {
+          uri = vscode.Uri.file(`${path}`);
         }
         doc = await vscode.workspace.openTextDocument(uri);
       } catch (err) {
