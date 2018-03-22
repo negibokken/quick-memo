@@ -66,5 +66,14 @@ export class QuickMemo {
       return;
     }
     vscode.window.showTextDocument(doc, 1, false);
-  }
+  };
+
+  public openQuickMemo = async (): Promise<void> => {
+    try {
+      const path = vscode.Uri.file(this.rootDir);
+      vscode.commands.executeCommand('vscode.openFolder', path, true);
+    } catch (err) {
+      return err;
+    }
+  };
 }

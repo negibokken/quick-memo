@@ -14,13 +14,20 @@
     "vscode": "^1.20.0"
   },
   "categories": ["Other"],
-  "activationEvents": ["onCommand:extension.quickMemo"],
+  "activationEvents": [
+    "onCommand:extension.quickMemo",
+    "onCommand:extension.openQuickMemo"
+  ],
   "main": "./out/extension",
   "contributes": {
     "commands": [
       {
         "command": "extension.quickMemo",
         "title": "Quick Memo"
+      },
+      {
+        "command": "extension.openQuickMemo",
+        "title": "Open Quick Memo"
       }
     ]
   },
