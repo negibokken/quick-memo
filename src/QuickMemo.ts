@@ -2,17 +2,20 @@ import * as mkdirp from 'mkdirp';
 import * as pify from 'pify';
 import * as vscode from 'vscode';
 import * as fs from 'fs';
+import * as os from 'os';
+import * as path from 'path';
 
 const mkdirpp = pify(mkdirp);
 const statp = pify(fs.stat);
 
 export class QuickMemo {
-  constructor() {}
+  private rootDir: string;
+  constructor() {
+    // Set Root Directory
+    this.rootDir = path.resolve(os.homedir(), 'quick-memo');
+  }
 
-  public async quickMemo(): Promise<void> {
-    // Set HomeDirectory
-    const homeDir = process.env.HOME;
-    const rootDir = `${homeDir}/quick-memo`;
+  public quickMemo = async (): Promise<void> => {
     // make today's directory if needed
     const now = Date.now();
     const date = new Date(now);
@@ -21,7 +24,9 @@ export class QuickMemo {
     const monthString = m < 10 ? `0${m}` : m;
     const dateString = d < 10 ? `0${d}` : d;
 
-    const dirName = `${rootDir}/${date.getFullYear()}${monthString}${dateString}`;
+    const dirName = `${
+      this.rootDir
+    }/${date.getFullYear()}${monthString}${dateString}`;
     await mkdirpp(dirName);
     let input = await vscode.window.showInputBox({
       prompt: 'Input filename'
