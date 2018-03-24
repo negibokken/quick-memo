@@ -10,9 +10,10 @@ const statp = pify(fs.stat);
 
 export class QuickMemo {
   private rootDir: string;
-  constructor() {
+  constructor(config: vscode.WorkspaceConfiguration) {
     // Set Root Directory
-    this.rootDir = path.resolve(os.homedir(), 'quick-memo');
+    this.rootDir =
+      config.get('rootDir') || path.resolve(os.homedir(), 'quick-memo');
   }
 
   public quickMemo = async (): Promise<void> => {

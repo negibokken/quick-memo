@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.3.0 (2018/03/24)
+
+* Enable to setup with configuration file
+
 ## 0.2.0 (2018/03/13)
 
 * Add open project command
