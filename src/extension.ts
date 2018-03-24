@@ -2,8 +2,10 @@ import * as vscode from 'vscode';
 import { QuickMemo } from './QuickMemo';
 
 export function activate(context: vscode.ExtensionContext) {
-  const quickMemo: QuickMemo = new QuickMemo();
-  console.log('hello');
+  const config: vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration(
+    'quickMemo'
+  );
+  const quickMemo: QuickMemo = new QuickMemo(config);
 
   context.subscriptions.push(
     vscode.commands.registerCommand('extension.openQuickMemo', () => {
